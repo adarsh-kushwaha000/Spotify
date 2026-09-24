@@ -1,264 +1,127 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Ensures padding doesn't break widths */
+    box-sizing: border-box; /* This is essential to prevent horizontal scrolling */
     font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
     background-color: black;
-    overflow-x: hidden; /* Prevents horizontal scrolling on the whole page */
+    color: white;
+    overflow-x: hidden; 
 }
 
-/* --- NAVIGATION BAR --- */
+/* ========================================= */
+/*             DESKTOP LAYOUT                */
+/* ========================================= */
+
 .nav-bar {
     height: 60px;
     width: 100%;
     background-color: black;
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Spreads items out evenly */
-    padding: 0 20px;
     position: fixed;
     top: 0;
-    z-index: 100; /* Keeps nav above other elements */
-}
-
-.nav-left {
-    display: flex;
-    align-items: center;
+    z-index: 1000;
+    padding: 0 10px;
 }
 
 .nav-logo {
     background-image: url("Spotify1.png");
     background-size: cover;
     height: 40px;
-    width: 40px;
+    min-width: 40px;
+    margin: 0 15px;
 }
 
 .home {
     background-image: url("home2.png");
     height: 35px;
-    width: 35px;
-    margin-left: 20px;
+    min-width: 35px;
+    margin-left: 10px;
     background-size: cover;
 }
 
 .search-bar {
     height: 40px;
-    width: 100%;
+    flex: 1;
     max-width: 430px;
     margin: 0 20px;
     background-color: rgb(58, 56, 56);
     display: flex;
     align-items: center;
     border-radius: 25px;
-    flex: 1; /* Allows search bar to shrink/grow */
+    padding: 0 15px;
 }
 
-.search-bar:hover {
-    border: 2px solid white;
-}
-
-.icon {
-    font-size: 20px;
-    margin: 0 15px;
-    color: white;
-}
-
-.name {
+.search-bar .name {
     background-color: transparent;
     border: none;
-    width: 100%;
-    height: 100%;
     color: white;
+    width: 100%;
+    margin-left: 10px;
     outline: none;
 }
 
-::placeholder {
-    font-size: medium;
-    color: white;
-}
-
-.music {
+.icon, .music {
     font-size: 20px;
+    color: gray;
+}
+
+.Premium, .Install, .Sign-in {
     margin: 0 15px;
+    white-space: nowrap;
     color: gray;
-}
-
-.music:hover {
-    font-size: 22px;
-    color: white;
-}
-
-/* --- NAV RIGHT SIDE --- */
-.nav-right {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.Premium {
-    color: white;
-}
-
-.Premium span, .Install span {
-    margin: 0 10px;
-    cursor: pointer;
-}
-
-.bold span:hover {
-    color: white;
-    transform: scale(1.05);
-}
-
-.Install {
-    display: flex;
-    align-items: center;
-}
-
-.bold {
-    font-weight: bolder;
-    color: gray;
-}
-
-.Sign-in {
-    color: gray;
+    font-weight: bold;
     cursor: pointer;
 }
 
 .Log-in {
     background-color: white;
     color: black;
-    height: 35px;
-    padding: 0 20px;
+    padding: 8px 25px;
     border-radius: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    margin-left: 10px;
+    font-weight: bold;
     cursor: pointer;
 }
 
-/* --- SIDEBAR (First-box) --- */
+/* --- SIDEBAR --- */
 .First-box {
-    height: calc(100vh - 140px); /* Adjusts for nav and bottom banner */
+    height: calc(100vh - 140px);
     width: 350px;
     background-color: rgb(34, 34, 34);
-    margin: 10px;
-    border-radius: 12px;
     position: fixed;
-    overflow-y: auto;
-    top: 60px;
-}
-
-.First-box::-webkit-scrollbar {
-    background-color: transparent;
-    width: 8px;
-}
-.First-box:hover::-webkit-scrollbar-thumb {
-    background-color: rgba(248, 248, 248, 0.5);
-    border-radius: 10px;
-}
-
-.line1 {
-    padding: 25px 20px 20px 20px;
-    color: white;
-    font-weight: bold;
-    display: flex;
-    justify-content: space-between;
-}
-
-.line {
-    padding: 15px;
-    margin: 10px;
-    background-color: rgb(58, 56, 56);
-    color: white;
+    top: 70px;
+    left: 10px;
     border-radius: 12px;
+    overflow-y: auto;
 }
 
-.create {
-    font-size: 16px;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.easy {
-    font-size: 14px;
-    margin-bottom: 15px;
-}
-
-.playlist {
-    background-color: white;
-    color: black;
-    padding: 8px 15px;
-    border-radius: 25px;
-    display: inline-block;
-    font-weight: bolder;
-    font-size: 14px;
-    cursor: pointer;
-}
-
-.playlist:hover {
-    transform: scale(1.05);
-}
-
-.line4 {
-    margin-top: 20px;
-    padding: 15px;
-}
-
-.l1 {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin-bottom: 20px;
-}
-
-.l1 span, .l1 div {
-    font-size: 11px;
-    color: gray;
-    cursor: pointer;
-}
-
-.l2 {
-    display: flex;
-    border: 1px solid gray;
-    width: fit-content;
-    padding: 8px 15px;
-    border-radius: 25px;
-    align-items: center;
-    cursor: pointer;
-}
-
-.l2:hover {
-    border: 1px solid white;
-}
-
-.l2 div {
-    margin-left: 5px;
-    color: white;
-    font-weight: bold;
-}
+.line1, .line { padding: 20px; }
+.line { background-color: rgb(58, 56, 56); margin: 10px; border-radius: 12px; }
+.playlist { background: white; color: black; padding: 10px; border-radius: 20px; display: inline-block; font-weight: bold; margin-top: 10px; }
+.l1 span, .l1 div { color: gray; font-size: 11px; margin-right: 10px; display: inline-block; line-height: 2; }
+.l2 { border: 1px solid gray; padding: 5px 15px; border-radius: 20px; display: inline-flex; align-items: center; gap: 5px; margin-top: 15px; }
 
 /* --- MAIN CONTENT --- */
 .main, .main2 {
-    width: calc(100% - 370px); /* Takes remaining width after sidebar */
-    margin-left: 370px; /* Pushes past sidebar */
     margin-top: 70px;
+    margin-left: 370px; /* Pushes content strictly to the right of the sidebar */
+    width: calc(100% - 380px);
     background-color: rgb(34, 34, 34);
-    padding: 20px;
     border-radius: 12px;
-    margin-bottom: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
 }
 
-.main3 {
-    margin-top: 0;
-}
+.main3 { margin-top: 0; }
+.main5 { margin-bottom: 100px; display: flex; flex-direction: column; }
 
-.word {
-    font-size: 25px;
+.word, .word1 {
+    font-size: 24px;
     font-weight: bold;
-    color: white;
     margin-bottom: 15px;
 }
 
@@ -266,215 +129,114 @@ body {
     display: flex;
     overflow-x: auto;
     gap: 15px;
-    padding-bottom: 15px;
+    padding-bottom: 10px;
 }
 
-.type::-webkit-scrollbar {
-    background-color: transparent;
-    height: 8px;
-}
-.type:hover::-webkit-scrollbar-thumb {
-    background-color: rgba(248, 248, 248, 0.5);
-    border-radius: 10px;
-}
+.type::-webkit-scrollbar { height: 8px; }
+.type::-webkit-scrollbar-thumb { background: gray; border-radius: 10px; }
 
 .item, .item1 {
     min-width: 180px;
-    padding: 15px;
     background-color: #181818;
     border-radius: 12px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    padding: 15px;
+    transition: 0.3s;
 }
 
-.item:hover, .item1:hover {
-    background-color: rgb(58, 56, 56);
-}
+.item:hover, .item1:hover { background-color: rgb(58, 56, 56); }
 
-.photo img, .photo1 img {
+.photo img {
     width: 100%;
     height: 150px;
     object-fit: cover;
     border-radius: 8px;
 }
 
-.item1 img {
-    border-radius: 50%; /* For artists */
-}
-
-.explain {
-    font-size: 16px;
-    margin-top: 10px;
-    color: white;
-    font-weight: bold;
-}
-
-.explain2 {
-    color: gray;
-    font-size: 14px;
-    margin-top: 5px;
-}
-
-/* --- FOOTER --- */
-.footer {
-    padding-bottom: 40px;
-}
-
-.foot {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
-    margin-top: 35px;
-}
-
-.foot-topic {
-    font-size: 16px;
-    color: white;
-    font-weight: bold;
-    margin-bottom: 15px;
-}
-
-.info {
-    color: gray;
-    margin-bottom: 10px;
-    cursor: pointer;
-}
-
-.info:hover {
-    color: white;
-}
-
-.foot-icon {
-    margin-left: auto;
-    display: flex;
-    gap: 15px;
-}
-
-.foot-icon i {
-    font-size: 20px;
-    background-color: #292929;
-    padding: 10px;
+.photo1 img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
     border-radius: 50%;
-    cursor: pointer;
 }
 
-.foot-icon i:hover {
-    background-color: gray;
-}
+.explain { font-size: 16px; font-weight: bold; margin-top: 10px; }
+.explain2 { color: gray; font-size: 14px; margin-top: 5px; }
 
-.main5 {
-    display: flex;
-    align-items: center;
-    padding: 20px;
-    color: gray;
-    margin-bottom: 90px; /* Space for the bottom banner */
-}
+/* Footer Links */
+.foot { display: flex; flex-wrap: wrap; gap: 40px; margin-top: 20px; }
+.foot-topic { font-weight: bold; margin-bottom: 10px; }
+.info { color: gray; margin-bottom: 5px; }
+.foot-icon i { font-size: 20px; background: #292929; padding: 10px; border-radius: 50%; margin-right: 10px; }
 
-/* --- BOTTOM BANNER (p1) --- */
+/* --- BOTTOM BANNER --- */
 .p1 {
     position: fixed;
     bottom: 10px;
     left: 10px;
     width: calc(100% - 20px);
     background: linear-gradient(to right, #af2896, #509bf5);
-    padding: 15px 25px;
     border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    z-index: 100;
+    padding: 15px 25px;
+    z-index: 1000;
 }
 
-.q1 {
-    color: white;
-}
-
-#w1 {
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 5px;
-}
-
-#w2 {
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.q2 {
-    background-color: white;
-    color: black;
-    padding: 12px 30px;
-    border-radius: 30px;
-    font-weight: bold;
-    cursor: pointer;
-    white-space: nowrap;
-}
-
-.q2:hover {
-    transform: scale(1.05);
-}
+#w1 { font-size: 12px; text-transform: uppercase; margin-bottom: 5px; }
+#w2 { font-weight: bold; font-size: 15px; }
+.q2 { background: white; color: black; padding: 12px 25px; border-radius: 30px; font-weight: bold; white-space: nowrap; }
 
 /* ========================================= */
-/*       MEDIA QUERIES (RESPONSIVENESS)      */
+/*   STRICT RESPONSIVE RULES (ALL DEVICES)   */
 /* ========================================= */
 
-/* TABLET SCREENS */
-@media (max-width: 1024px) {
-    .nav-right .Premium, 
-    .nav-right .Install, 
-    .nav-right .Sign-in {
-        display: none; /* Hides extra links to save space */
+/* TABLET SCREENS (Max-width: 1100px) */
+@media screen and (max-width: 1100px) {
+    .Premium, .Install, .Sign-in {
+        display: none !important; /* Hides extra nav links to prevent overlapping */
     }
 }
 
-/* MOBILE SCREENS */
-@media (max-width: 768px) {
-    /* Hide Sidebar */
+/* MOBILE PHONES (Max-width: 768px) */
+@media screen and (max-width: 768px) {
+    /* 1. Force Sidebar to Disappear completely */
     .First-box {
-        display: none;
+        display: none !important; 
     }
 
-    /* Expand Main Area to Full Width */
+    /* 2. Force Main Content to take Full Width */
     .main, .main2 {
-        width: 100%;
-        margin-left: 0;
-        border-radius: 0;
+        margin-left: 10px !important;
+        width: calc(100% - 20px) !important;
     }
 
-    /* Adjust Navigation */
-    .nav-bar {
-        padding: 0 10px;
-    }
+    /* 3. Adjust Navbar for small screens */
     .search-bar {
-        margin: 0 10px;
+        margin: 0 10px !important;
+        max-width: none !important;
     }
-    
-    /* Adjust Footer Layout */
-    .foot {
-        flex-direction: column;
-        gap: 20px;
-    }
-    .foot-icon {
-        margin-left: 0;
+    .home {
+        display: none !important; /* Hide home icon to give search bar space */
     }
 
-    /* Adjust Bottom Banner */
+    /* 4. Fix Bottom Banner so text doesn't overflow */
     .p1 {
-        flex-direction: column;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        border-radius: 0;
+        flex-direction: column !important; /* Stacks text and button vertically */
         text-align: center;
         gap: 15px;
+        bottom: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        border-radius: 0 !important; /* Makes it flush with bottom of phone */
+        padding: 15px 10px !important;
     }
     
-    #w2 {
-        font-size: 14px;
-    }
-    
+    .q1 { width: 100% !important; }
+    .q2 { width: 100% !important; text-align: center; }
+
+    /* 5. Add extra margin at bottom so content isn't hidden behind banner */
     .main5 {
-        margin-bottom: 120px; /* Extra space so banner doesn't cover text */
+        margin-bottom: 130px !important;
     }
 }
